@@ -1,48 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Berk Bircan | Portfolio</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        #eye {
-            font-size: 12px;
-            text-align: center;
-            white-space: pre;
-        }
-        h2 {
-            margin-top: 20px;
-            font-weight: normal;
-            font-size: 18px;
-            opacity: 0.6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milton Interface - Berk BIRCAN</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    pre {
+      font-size: 18px;
+      line-height: 1.2;
+      text-align: center;
+      transition: all 0.1s linear;
+    }
+
+    #eye {
+      display: inline-block;
+      position: relative;
+    }
+
+    #pupil {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: #00ff00;
+      border-radius: 50%;
+      top: 22px;
+      left: 47px;
+      transition: top 0.1s, left 0.1s;
+    }
+
+    .title {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #00ff00;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-    <div id="eye">
-        <!-- Buraya Göz ASCII resmi gelecek -->
-        <pre>
-. ...;:cccccccc:;...
-..:cccc:;:ccccccccclolc;..
-.''';;,,,';ldxxxxkkkdxxxxdol:'.
-':codxk0KKK00OkxdxkOK00KK0Okd:,.
-';coxO00KKXNWWMMWWNNXK00Okdc,.
-...,cox0KXNNNNWWNNXKOdc;,,.
-.....';:lodkO000Okxdl:;,'....
-........',;:cllllc:;,''......
-            </pre>
-    </div>
-    <h2>Milton Library Assistant</h2>
+
+<div id="eye">
+  <pre>
+    _____________
+   /             \
+  /               \
+ /                 \
+|                   |
+|                   |
+|                   |
+ \                 /
+  \               /
+   \_____________/
+  </pre>
+  <div id="pupil"></div>
+</div>
+
+<div class="title">
+  Milton Library Assistant
+</div>
+
+<script>
+  const pupil = document.getElementById('pupil');
+
+  document.addEventListener('mousemove', (e) => {
+    const eye = document.getElementById('eye');
+    const rect = eye.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    const maxX = 20; // sağa sola maksimum hareket
+    const maxY = 10; // yukarı aşağı maksimum hareket
+
+    const moveX = Math.max(Math.min(x / 10, maxX), -maxX);
+    const moveY = Math.max(Math.min(y / 10, maxY), -maxY);
+
+    pupil.style.left = `${47 + moveX}px`;
+    pupil.style.top = `${22 + moveY}px`;
+  });
+</script>
+
 </body>
 </html>
