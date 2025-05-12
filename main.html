@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berk Bircan - Personal Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-screen">
+        <h1>Welcome to Berk Bircan's Universe</h1>
+
+        <div class="button-group">
+            <button onclick="showContent('engineering')">Engineering</button>
+            <button onclick="showContent('music')">Music</button>
+            <button onclick="showContent('cats')">Cats</button>
+        </div>
+
+        <div id="content-area">
+            <div id="engineering" class="content-block" style="display:none;">
+                <h2>Engineering</h2>
+                <p>Mechanical design, control systems, and simulations.  
+                Here you will find my engineering projects, simulations, and articles.</p>
+            </div>
+
+            <div id="music" class="content-block" style="display:none;">
+                <h2>Music</h2>
+                <p>My personal music journey, playlists, and compositions.  
+                Explore the sounds I love and create.</p>
+            </div>
+
+            <div id="cats" class="content-block" style="display:none;">
+                <h2>Cats</h2>
+                <p>Neighborhood cats photography and stories.  
+                Because cats rule the world (and the internet).</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(section) {
+            const blocks = document.querySelectorAll('.content-block');
+            blocks.forEach(block => block.style.display = 'none');
+            document.getElementById(section).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
