@@ -23,7 +23,7 @@ function typeLine() {
 }
 
 enterButton.addEventListener("click", function() {
-    window.location.href = "main.html";  // Bir sonraki sayfaya yönlendirme (main.html henüz yok)
+    window.location.href = "main.html";  // henüz yok, sonra yapacağız
 });
 
 typeLine();
